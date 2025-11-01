@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bodycount Reducer</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #002c42;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #bae6fd;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    button {
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0284c7;
+      transform: scale(1.05);
+    }
+
+    #output {
+      margin-top: 25px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #7dd3fc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bodycount Reducer</h1>
+
+  <input type="number" id="bodyCount" placeholder="Enter your bodycount">
+  
+  <div class="buttons">
+    <button onclick="reduceCount(5)">Sabr</button>
+    <button onclick="reduceCount(10)">Krishna Sadaiv Sahayte</button>
+    <button onclick="reduceCount(15)">Alhamdulillah for Everything</button>
+    <button onclick="reduceCount(20)">Mahakal ki Deewani</button>
+    <button onclick="resetCount()">Premanand Baba Follower</button>
+  </div>
+
+  <div id="output">Current Bodycount: -</div>
+
+  <script>
+    function reduceCount(amount) {
+      let input = document.getElementById("bodyCount");
+      let count = parseInt(input.value);
+      if (isNaN(count)) {
+        alert("Please enter a valid bodycount first!");
+        return;
+      }
+      count = Math.max(0, count - amount); // prevent negative
+      input.value = count;
+      document.getElementById("output").innerText = `Current Bodycount: ${count}`;
+    }
+
+    function resetCount() {
+      document.getElementById("bodyCount").value = 0;
+      document.getElementById("output").innerText = "Current Bodycount: 0";
+    }
+  </script>
+
+</body>
+</html>
